@@ -16,3 +16,6 @@ To train your own network
 2) In the 3rd panel of the GUI, under "Do you want to train a new network", toggle the switch to "Yes". This should automatically launch the Training GUI.
 3) In the Training GUI, select your training and validation folders, and change augmentation parameters or base architecture if desired. It should be noted that both the augmentation parameters and base architecture have been preset for greatest speed and accuracy.
 4) Hit “TRAIN ESTROUSNET” and watch your machine learn!
+
+
+For contributions or comments, contact Nora Wolcott at nora.wolcott@lifesci.ucsb.edu.
