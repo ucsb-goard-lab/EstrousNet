@@ -18,4 +18,16 @@ To train your own network
 4) Hit “TRAIN ESTROUSNET” and watch your machine learn!
 
 
+Once classifications are complete, you will be asked if you want to save your results to the current directory. 
+The results output will be saved as a structure, with the following fields:
+
+trainedNet          Pretrained network imported into GUI.
+testFolder          Path of the folder containing your test images.
+rawImages           Image datastore of unprocessed test images.
+processed Images    Image datastore of test images after luminance normalization and conversion to greyscale.
+finalLabels         Final classifications for each image, with net labels changed to cyclicity labels in all instances specified by the user.
+cyclicityLabels     Classifications that most closely correspond to an archetypal estrous cycle.
+labelProbabilities  Classifications for each test image broken down by probability for all estrous stages.
+
+
 For contributions or comments, contact Nora Wolcott at nora.wolcott@lifesci.ucsb.edu.
