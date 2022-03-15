@@ -5,7 +5,7 @@ EstrousNet is a novel deep learning pipeline for unbiased classification of estr
 
 For image classification on pretrained network
 1) In MATLAB, navigate to the folder containing the EstrousNet code.
-2) Make sure all necessary MATLAB packages are installed, including Deep Learning Toolbox and Deep Learning Toolbox Model for ResNet-50 Network, or whichever base    architecture you are using.
+2) Make sure all necessary MATLAB packages are installed, including Image Processing Toolbox, Statistics and Machine Learning Toolbox, Deep Learning Toolbox, and Deep Learning Toolbox Model for ResNet-50 Network, or whichever base architecture you are using.
 3) Run the GUI by executing “EstrousNetGUI” from MATLAB’s command window.
 4)  Select your folder of test images, and whether your images were taken sequentially.
 5)  Hit “RUN ESTROUSNET”, and watch your classifications appear!
