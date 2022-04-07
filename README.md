@@ -7,7 +7,7 @@ For image classification on pretrained network
 1) In MATLAB, navigate to the folder containing the EstrousNet code.
 2) Make sure all necessary MATLAB packages are installed, including Image Processing Toolbox, Statistics and Machine Learning Toolbox, Deep Learning Toolbox, and Deep Learning Toolbox Model for ResNet-50 Network, or whichever base architecture you are using.
 3) Run the GUI by executing “EstrousNetGUI” from MATLAB’s command window.
-4)  Select your folder of test images, and whether your images were taken sequentially.
+4)  Select your folder of test images, and whether your images were taken sequentially. EstrousNet accepts images of type JPG, PNG, and BMP. Smaller images will result in a faster classification, but are not necessary for high accuracy. 
 5)  Hit “RUN ESTROUSNET”, and watch your classifications appear!
 
 
