@@ -2,6 +2,7 @@
 
 EstrousNet is a novel deep learning pipeline for unbiased classification of estrous stage. To emulate human classification more closely, the EstrousNet algorithm fits test images to an archetypal estrous cycle, avoiding common confusion errors. Final classifications surpass expert accuracy and speed.
 
+IMPORTANT: If you are using the pretrained network to classify images with EstrousNet, you must download the code over Git command line. The pretrained net is uploaded via GitHub's Large File Storage system, and files downloaded to a zipped folder on GitHub desktop will not contain the full 84MB pretrained network file. Alternatively, you may download the full file on GitHub desktop by navigating to it directly and clicking the "Download" button above the "View Raw" hyperlink. 
 
 For image classification on pretrained network
 1) In MATLAB, navigate to the folder containing the EstrousNet code.
