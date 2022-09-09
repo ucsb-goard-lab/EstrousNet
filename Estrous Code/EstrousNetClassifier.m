@@ -1,6 +1,6 @@
 classdef EstrousNetClassifier < handle
     %% EstrusNetClassifier.m
-    %-------------------------------------------------------------------------%
+    %----------------------------------------------------------------------%
     %   This class uses a pretrained algorithm to identify the stages of
     %   the estrous cycle. If cytology images were taken sequentially, the
     %   EstrousNet output will be fit to an archetypal cycle for more
@@ -38,6 +38,7 @@ classdef EstrousNetClassifier < handle
         netLabels % EstrousNet classifications
         cyclicityLabels % classifications when fit to linear cycle
         finalLabels % composite EstrousNet and cyclicity classifications
+        confidence_index % degree of certainty, defined in GUI
     end
     
     methods
