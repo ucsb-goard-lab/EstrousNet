@@ -179,7 +179,8 @@ classdef EstrousNetClassifier < handle
             
             addpath(obj.testFolder)
             test_names = [dir(fullfile(obj.testFolder, '*.jpg')); dir(fullfile(obj.testFolder, '*.png'));...
-                dir(fullfile(obj.testFolder, '*.bmp'))];
+                dir(fullfile(obj.testFolder, '*.bmp')); dir(fullfile(obj.testFolder, '*.tif'));...
+                dir(fullfile(obj.testFolder, '*.tiff'))];
             num_imds = length(test_names);
             
             oldFolder = obj.testFolder; % save old folder
@@ -189,10 +190,18 @@ classdef EstrousNetClassifier < handle
             test_im_array = cell(num_imds,1);
             desired_lum = 125; % set desired luminance
             for ii = 1:num_imds
-                im = imread(fullfile(test_names(ii).folder,test_names(ii).name));
+                im = importdata(fullfile(test_names(ii).folder,test_names(ii).name));
+                if isstruct(im)
+                    im = im.cdata; % if importing structural pngs
+                end
                 lum_diff = mean(mean(im, [1 2])) - desired_lum; % how far image is from desired luminance
                 im_norm = im - lum_diff; % normalize luminance
-                im_grey = rgb2gray(im_norm); % convert to greyscale
+                if size(im_norm,3) > 2 % for rgb images
+                    im_grey = 0.2989 * im_norm(:,:,1) + 0.5870 * im_norm(:,:,2)...
+                        + 0.1140 * im_norm(:,:,3); % convert to greyscale (rgb2grey doesn't work for 4pg tiff)
+                else
+                    im_grey = uint8(im_norm); % convert to image format
+                end
                 im_3d = cat(3,im_grey, im_grey, im_grey); % make 3d
                 test_im_array{ii} = im_3d;
             end
