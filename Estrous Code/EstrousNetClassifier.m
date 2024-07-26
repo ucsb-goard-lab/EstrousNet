@@ -189,7 +189,7 @@ classdef EstrousNetClassifier < handle
             desired_lum = 125; % set desired luminance
             processedImages = zeros(num_imds,min_imsize*min_imsize);
             for j = 1:num_imds
-                imagePath = fullfile(categoryFolder, test_names(j).name);
+                imagePath = fullfile(obj.testFolder, test_names(j).name);
                 img = imread(imagePath);
 
                 % preprocess the image: convert to grayscale and resize
@@ -207,7 +207,7 @@ classdef EstrousNetClassifier < handle
                 rescale_factor = min_imsize/min(size(im_grey)); % factor to rescale by
                 im_rescaled = imresize(im_grey,rescale_factor); % rescale
                 im_cropped = im_rescaled(1:min_imsize,1:min_imsize); % crop
-                processedImages(j,:) = im_cropped(:)'; % store
+                processedImages(j,:) = double(im_cropped(:)'); % store
             end
         end
 
