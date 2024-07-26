@@ -131,9 +131,9 @@ classdef EstrousNetClassifier < handle
             end
 
             % find archetypal cycle that fits data
-            possible_shifts = sampling_freq * length(categories(obj.netLabels));
+            possible_shifts = sampling_freq * length(unique(obj.netLabels));
             slope = 1/sampling_freq; % archetypal stage changes by 0.5 every sample
-            cycle = 1:slope:length(categories(obj.netLabels));
+            cycle = 1:slope:length(unique(obj.netLabels));
             numCycles = floor(length(single_mouse)/length(cycle));
             remainder = rem(length(single_mouse),length(cycle));
             archetypal_cycle = [repmat(cycle,1,numCycles),cycle(1:remainder)];
@@ -149,7 +149,7 @@ classdef EstrousNetClassifier < handle
             test_vec = fitted_cycle(best_fit_idx,:);
 
             % correct for wrapped remainder tail: make sure vector is sequential
-            target_vec = repmat(1:4, 1, ceil(length(test_vec)/length(categories(obj.netLabels)) + sampling_freq)); % repeating template vector
+            target_vec = repmat(1:4, 1, ceil(length(test_vec)/length(unique(obj.netLabels)) + sampling_freq)); % repeating template vector
             for t = 1:possible_shifts-1 % shift and check
                 sim(t) = sum(test_vec == target_vec(t : (t - 1) +  length(test_vec))); % similarity between shifted & ideal vectors
             end
@@ -213,7 +213,7 @@ classdef EstrousNetClassifier < handle
 
         function getClassification(obj,processedImages)
             [obj.netLabels, score2] = obj.trainedNet.classify(processedImages); % run net
-            obj.netLabels = regexprep(cellstr(num2str(obj.netLabels)),{'1','2','4','3'},...
+            obj.netLabels = regexprep(cellstr(num2str(obj.netLabels)),{'1','4','3','2'},...
                 obj.class_opts); % transform numerical to strings
             obj.finalLabels = obj.netLabels; % set final labels to be based in net labels
             obj.labelProbabilities = [score2(:,1),score2(:,end),score2(:,2:end-1)]; % switch 2nd and last dims
