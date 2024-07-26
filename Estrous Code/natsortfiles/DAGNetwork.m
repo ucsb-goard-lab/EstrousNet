@@ -15,14 +15,14 @@ classdef DAGnetwork
             end
         end
         
-        % Predict method to mimic DAGNetwork
-        function labels = classify(obj, data)
-            labels = predict(obj.Model, data);
+        % Get classifications
+        function [labels,score] = classify(obj, data)
+            [labels,score] = predict(obj.Model, data);
         end
         
-        % Display method to mimic DAGNetwork display
+        % Display layers
         function disp(obj)
-            disp('Custom DAGNetwork for KNN Model:');
+            disp('Custom DAGNetwork:');
             disp('Layers:');
             disp(obj.Layers);
             disp('Connections:');
