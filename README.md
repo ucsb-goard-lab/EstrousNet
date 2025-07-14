@@ -42,4 +42,4 @@ finalLabels:         Final classifications for each image, with net labels chang
 confidence_index:    Degree of confidence for each image, where 1 indicates 100% certainty in a classification and 0 indicates equal certainty of the top 2        classifications.
 
 
-For contributions or comments, contact Nora Wolcott at nora.wolcott@lifesci.ucsb.edu.
+For contributions or comments, contact Nora Wolcott at nora.wolcott@gmail.com.
