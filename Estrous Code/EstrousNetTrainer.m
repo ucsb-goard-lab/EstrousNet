@@ -67,7 +67,7 @@ classdef EstrousNetTrainer < handle
         
         function [trainingDS, validationDS] = getData(obj, trainFolder, validationFolder)
             % Get raw data from files
-            subfolders = dir(strcat(trainFolder,'\*'));
+            subfolders = dir(fullfile(trainFolder,'*'));
             classes = {subfolders(3:end).name}; % labels from subfolder names
             trainingDS = imageDatastore(fullfile(trainFolder, classes), 'LabelSource', 'foldernames');
             validationDS = imageDatastore(fullfile(validationFolder, classes), 'LabelSource', 'foldername');
