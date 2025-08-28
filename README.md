@@ -2,14 +2,14 @@
 
 EstrousNet is a novel deep learning pipeline for unbiased classification of estrous stage. To emulate human classification more closely, the EstrousNet algorithm fits test images to an archetypal estrous cycle, avoiding common confusion errors. Final classifications surpass expert accuracy and speed.
 
-IMPORTANT: If you are using the pretrained network ("PretrainedNet.mat") to classify images with EstrousNet, you must download the code over Git command line. The pretrained net is uploaded via GitHub's Large File Storage system, and files downloaded to a zipped folder on GitHub desktop will not contain the full 84MB pretrained network file. Alternatively, you may download the full file on GitHub desktop by navigating to it directly and clicking the "Download" button above the "View Raw" hyperlink. 
+IMPORTANT: If you are using the pretrained network ("PretrainedNet.mat") to classify images with EstrousNet, you must download the code over Git command line. The pretrained net is uploaded via GitHub's Large File Storage system, and files downloaded to a zipped folder on GitHub desktop will not contain the full 84MB pretrained network file. Alternatively, you may download the full file on GitHub desktop by navigating to it directly and clicking the "Download" button above the "View Raw" hyperlink.
 
 For image classification on pretrained network
 1) In MATLAB, navigate to the folder containing the EstrousNet code.
 2) DOUBLE CHECK that all the EstrousNet code, including subfolders, are added to your path.
-3) Make sure all necessary MATLAB packages are installed, including Image Processing Toolbox, Statistics and Machine Learning Toolbox, Deep Learning Toolbox, and Deep Learning Toolbox Model for ResNet-50 Network, or whichever base architecture you are using.
+3) Make sure all necessary MATLAB packages are installed, including Image Processing Toolbox, Statistics and Machine Learning Toolbox, Deep Learning Toolbox, Deep Learning Toolbox Model and Parallel Computing Toolbox for ResNet-50 Network, or whichever base architecture you are using.
 4) Run the GUI by executing “EstrousNetGUI” from MATLAB’s command window.
-5)  Select your folder of test images, and whether your images were taken sequentially. EstrousNet accepts images of type JPG, PNG, TIF, TIFF, and BMP. Smaller images (< 1 MB) will result in a faster classification, but may reduce classification accuracy. 
+5)  Select your folder of test images, and whether your images were taken sequentially. EstrousNet accepts images of type JPG, PNG, TIF, TIFF, and BMP. Smaller images (< 1 MB) will result in a faster classification, but may reduce classification accuracy.
 6)  Hit “RUN ESTROUSNET”, and watch your classifications appear!
 
 
@@ -20,7 +20,7 @@ To train your own network
 4) Hit “TRAIN ESTROUSNET” and watch your machine learn!
 
 
-Once classifications are complete, you will be asked if you want to save your results to the current directory. 
+Once classifications are complete, you will be asked if you want to save your results to the current directory.
 The results output will be saved as a structure, with the following fields:
 
 trainedNet:          Pretrained network imported into GUI.
